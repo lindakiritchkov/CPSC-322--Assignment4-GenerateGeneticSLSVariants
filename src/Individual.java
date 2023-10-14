@@ -84,28 +84,13 @@ public class Individual {
                 ef;
     }
 
-    /*
 
-    ***************** CONSTRAINT HELPER FUNCTIONS ******************
-
-    - Each isConstXYSatisfied helper function below first checks
-      if both variables have been assigned.
-
-    - If either has not yet been assigned, then 0 will be returned,
-      indicating that the constraint is not satisfied
-
-    - If both variables have been assigned, the function will check if
-      the constraint is satisfied.
-
-    */
+    //***************** CONSTRAINT HELPER FUNCTIONS ******************
 
     // A > G
     private int isConstAGSatisfied() {
         Integer A = variableAssignments.get("A");
         Integer G = variableAssignments.get("G");
-        if (A == null || G == null) {
-            return 0;
-        }
 
         return A > G ? 1 : 0;
     }
@@ -114,9 +99,6 @@ public class Individual {
     private int isConstAHSatisfied() {
         Integer A = variableAssignments.get("A");
         Integer H = variableAssignments.get("H");
-        if (A == null || H == null) {
-            return 0;
-        }
 
         return A <= H ? 1 : 0;
     }
@@ -125,9 +107,6 @@ public class Individual {
     private int isConstFBSatisfied() {
         Integer F = variableAssignments.get("F");
         Integer B = variableAssignments.get("B");
-        if (F == null || B == null) {
-            return 0;
-        }
 
         return Math.abs(F - B) == 1 ? 1 : 0;
     }
@@ -136,9 +115,6 @@ public class Individual {
     private int isConstGHSatisfied() {
         Integer H = variableAssignments.get("H");
         Integer G = variableAssignments.get("G");
-        if (H == null || G == null) {
-            return 0;
-        }
 
         return G < H ? 1 : 0;
     }
@@ -147,9 +123,6 @@ public class Individual {
     private int isConstGCSatisfied() {
         Integer C = variableAssignments.get("C");
         Integer G = variableAssignments.get("G");
-        if (C == null || G == null) {
-            return 0;
-        }
 
         return Math.abs(G - C) == 1 ? 1 : 0;
     }
@@ -158,9 +131,7 @@ public class Individual {
     private int isConstHCSatisfied() {
         Integer H = variableAssignments.get("H");
         Integer C = variableAssignments.get("C");
-        if (H == null || C == null) {
-            return 0;
-        }
+
         return Math.abs(H - C) % 2 == 0 ? 1 : 0;
     }
 
@@ -168,9 +139,6 @@ public class Individual {
     private int isConstHDSatisfied() {
         Integer H = variableAssignments.get("H");
         Integer D = variableAssignments.get("D");
-        if (H == null || D == null) {
-            return 0;
-        }
 
         return H != D ? 1 : 0;
     }
@@ -179,9 +147,7 @@ public class Individual {
     private int isConstDGSatisfied() {
         Integer D = variableAssignments.get("D");
         Integer G = variableAssignments.get("G");
-        if (D == null || G == null) {
-            return 0;
-        }
+
         return D >= G ? 1 : 0;
     }
 
@@ -190,9 +156,7 @@ public class Individual {
     private int isConstDCSatisfied() {
         Integer D = variableAssignments.get("D");
         Integer C = variableAssignments.get("C");
-        if (D == null || C == null) {
-            return 0;
-        }
+
         return D != C ? 1 : 0;
     }
 
@@ -200,9 +164,7 @@ public class Individual {
     private int isConstECSatisfied() {
         Integer E = variableAssignments.get("E");
         Integer C = variableAssignments.get("C");
-        if (E == null || C == null) {
-            return 0;
-        }
+
         return E != C ? 1 : 0;
     }
 
@@ -210,9 +172,7 @@ public class Individual {
     private int isConstEDSatisfied() {
         Integer D = variableAssignments.get("D");
         Integer E = variableAssignments.get("E");
-        if (E == null || D == null) {
-            return 0;
-        }
+
         return E < D - 1 ? 1 : 0;
     }
 
@@ -220,9 +180,7 @@ public class Individual {
     private int isConstEHSatisfied() {
         Integer E = variableAssignments.get("E");
         Integer H = variableAssignments.get("H");
-        if (E == null || H == null) {
-            return 0;
-        }
+
         return E != H - 2 ? 1 : 0;
     }
 
@@ -230,9 +188,7 @@ public class Individual {
     private int isConstGFSatisfied() {
         Integer F = variableAssignments.get("F");
         Integer G = variableAssignments.get("G");
-        if (G == null || F == null) {
-            return 0;
-        }
+
         return G != F ? 1 : 0;
     }
 
@@ -240,9 +196,7 @@ public class Individual {
     private int isConstHFSatisfied() {
         Integer F = variableAssignments.get("F");
         Integer H = variableAssignments.get("H");
-        if (H == null || F == null) {
-            return 0;
-        }
+
         return H != F ? 1 : 0;
     }
 
@@ -250,9 +204,7 @@ public class Individual {
     private int isConstCFSatisfied() {
         Integer C = variableAssignments.get("C");
         Integer F = variableAssignments.get("F");
-        if (C == null || F == null) {
-            return 0;
-        }
+
         return C != F ? 1 : 0;
     }
 
@@ -260,9 +212,7 @@ public class Individual {
     private int isConstDFSatisfied() {
         Integer F = variableAssignments.get("F");
         Integer D = variableAssignments.get("D");
-        if (D == null || F == null) {
-            return 0;
-        }
+
         return D != F - 1 ? 1 : 0;
     }
 
@@ -270,9 +220,7 @@ public class Individual {
     private int isConstEFSatisfied() {
         Integer E = variableAssignments.get("E");
         Integer F = variableAssignments.get("F");
-        if (E == null || F == null) {
-            return 0;
-        }
+
         return Math.abs(E - F) % 2 == 1 ? 1 : 0;
     }
 }
