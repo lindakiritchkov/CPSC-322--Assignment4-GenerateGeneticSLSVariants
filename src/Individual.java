@@ -1,16 +1,10 @@
-import java.security.Key;
-import java.util.ArrayList;
-import java.util.SortedMap;
+
 import java.util.TreeMap;
 
 public class Individual {
     public TreeMap<String, Integer> variableAssignments;
     public int fitness;
     public float selectionChance;
-    public Individual() {
-        variableAssignments = new TreeMap<>();
-        fitness = determineFitness();
-    }
 
     public Individual(int A, int B, int C, int D, int E, int F, int G, int H) {
         variableAssignments = new TreeMap<>();
@@ -32,8 +26,7 @@ public class Individual {
     }
 
     public void setSelectionChance(int overallFitness) {
-        float selectionChance = (float)fitness / (float)overallFitness;
-        this.selectionChance = selectionChance;
+        this.selectionChance = (float)fitness / (float)overallFitness;
     }
 
     public void printVariableAssignments() {
@@ -48,14 +41,6 @@ public class Individual {
         String formattedSelectionChance = String.format("%.2f", (selectionChance * 100));
 
         System.out.print("fitness = " +  fitness + " (" + formattedSelectionChance + "%)");
-    }
-
-    public boolean isLeaf() {
-        if (variableAssignments.isEmpty()) {
-            return false;
-        }
-        String lastVariableAssigned = variableAssignments.lastKey();
-        return lastVariableAssigned.equals("H");
     }
 
     public int determineFitness() {

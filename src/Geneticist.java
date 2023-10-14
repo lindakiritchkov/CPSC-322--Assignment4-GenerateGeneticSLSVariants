@@ -1,7 +1,5 @@
-import java.awt.image.AreaAveragingScaleFilter;
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -222,12 +220,11 @@ public class Geneticist {
         return overallFitness;
     }
     public void printPopulation(ArrayList<Individual> pop) {
-        System.out.println("=============== GENERATION: " + generation + " ===============");
+        System.out.println("==================== GENERATION " + generation + " ====================");
 
         int overallFitness = determineOverallFitness(pop);
 
-        for (int i = 0; i < pop.size(); i++ ) {
-            Individual ind = pop.get(i);
+        for (Individual ind : pop) {
             ind.printVariableAssignments();
             System.out.print("  <=  ");
             ind.printFitnessFunction(overallFitness);
